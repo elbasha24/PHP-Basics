@@ -1,0 +1,34 @@
+
+In PHP, a callable is a type that represents a reference to a function or method that can be called. It can be used to invoke functions or methods dynamically or pass them as arguments to other functions. There are several types of callables in PHP:
+
+Function: A standalone function can be referenced as a callable.
+Copy code
+function greet($name) {    echo "Hello, $name!";}
+$callable = 'greet';
+$callable('John'); // Output: Hello, John!
+Methods: Callables can also refer to methods of an object or static methods of a class.
+Copy code
+class MyClass {
+    public function greet($name) {
+        echo "Hello, $name!";
+    }
+}
+
+$obj = new MyClass();
+$callable = [$obj, 'greet'];
+$callable('John'); // Output: Hello, John!
+A closure is an anonymous function that can be assigned to a variable or passed as an argument to other functions. It is a way to create functions on-the-fly without explicitly defining them using the function keyword.
+
+Closures are useful in scenarios where you want to create a function that can access variables from its surrounding scope, even after the outer function has finished executing. This behavior is known as “closing over” the variables.
+
+Here’s an example of creating and using a closure in PHP:
+
+Copy code
+$greeting = function ($name) {
+    echo "Hello, $name!";
+};
+$greeting('John'); // Output: Hello, John!
+In the above code, we assign an anonymous function to the variable $greeting. This function takes a parameter $name and echoes a greeting message using that parameter.
+
+Closures are commonly used when working with higher-order functions, such as array_map, array_filter, and usort, where you can pass a callback function as an argument. Closures provide a way to create functions on-the-fly and have more control over variable scoping. They are often used as callbacks or for implementing higher-order functions.
+
